@@ -50,8 +50,51 @@ def setup():
 # Routes
 #################################################
 
-@app.route("/send", methods=["GET", "POST"])
-def send():
+# @app.route("/send", methods=["GET", "POST"])
+# def send():
+#     if request.method == "POST":
+#         name = request.form["name"]
+#         grade = request.form["grade"]
+#         school = request.form["school"]
+#         gender = request.form["gender"]
+#         birthday = request.form["birthday"]
+#         gpa = request.form["gpa"]
+#         address = request.form["address"]
+#         phone = request.form["phone"]
+
+
+#         student = Students(
+#             name=name, 
+#             grade = grade, 
+#             school = school, 
+#             gender = gender, 
+#             birthday = birthday,
+#             gpa=gpa,
+#             address=address,
+#             phone=phone)
+#         db.session.add(student)
+#         db.session.commit()
+
+#         return "Thanks for the form data!"
+
+#     return render_template("form.html")
+
+
+# @app.route("/pets")
+# def list_pets():
+#     results = db.session.query(Pet.nickname, Pet.age).all()
+
+#     pets = []
+#     for result in results:
+#         pets.append({
+#             "nickname": result[0],
+#             "age": result[1]
+#         })
+#     return jsonify(pets)
+
+
+@app.route("/",methods=["GET", "POST"])
+def home():
     if request.method == "POST":
         name = request.form["name"]
         grade = request.form["grade"]
@@ -78,24 +121,6 @@ def send():
         return "Thanks for the form data!"
 
     return render_template("form.html")
-
-
-# @app.route("/pets")
-# def list_pets():
-#     results = db.session.query(Pet.nickname, Pet.age).all()
-
-#     pets = []
-#     for result in results:
-#         pets.append({
-#             "nickname": result[0],
-#             "age": result[1]
-#         })
-#     return jsonify(pets)
-
-
-@app.route("/")
-def home():
-    return "Welcome!"
 
 if __name__ == "__main__":
     app.run()
