@@ -80,10 +80,21 @@
 
             </div>
             <div class="form-row">
-                <button type="submit" class="btn btn-primary" value="submit">Sign in</button>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <button type="submit" class="btn btn-primary" value="submit">Sign in</button>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <button onclick="myFunction()" class = "btn btn-info">Print this page</button>
+                </div>
+                
+
             </div>
         </form>
     </div>
-    
+    <script>
+        function myFunction(){
+            window.print();
+        }
+    </script>
 </body>
 </html>

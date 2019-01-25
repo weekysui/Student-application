@@ -84,15 +84,16 @@ def setup():
 def list_students():
     results = db.session.query(Students.name, Students.grade, Students.school, Students.gender, Students.birthday, Students.gpa, Students.address, Students.phone).all()
 
-    students = []
-    for result in results:
-        students.append({
-            "Student's name": result[0],
-            "grade": result[1],
-            "School":result[2],
-            "gender":result[3]
-        })
-    return jsonify(students)
+    # students = []
+    # for result in results:
+    #     students.append({
+    #         "Student's name": result[0],
+    #         "grade": result[1],
+    #         "School":result[2],
+    #         "gender":result[3]
+    #     })
+    return render_template("list.html",results = results) 
+    # jsonify(students)
 
 
 @app.route("/",methods=["GET", "POST"])
