@@ -80,17 +80,19 @@ def setup():
 #     return render_template("form.html")
 
 
-# @app.route("/pets")
-# def list_pets():
-#     results = db.session.query(Pet.nickname, Pet.age).all()
+@app.route("/list")
+def list_students():
+    results = db.session.query(Students.name, Students.grade, Students.school, Students.gender, Students.birthday, Students.gpa, Students.address, Students.phone).all()
 
-#     pets = []
-#     for result in results:
-#         pets.append({
-#             "nickname": result[0],
-#             "age": result[1]
-#         })
-#     return jsonify(pets)
+    students = []
+    for result in results:
+        students.append({
+            "Student's name": result[0],
+            "grade": result[1],
+            "School":result[2],
+            "gender":result[3]
+        })
+    return jsonify(students)
 
 
 @app.route("/",methods=["GET", "POST"])
