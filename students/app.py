@@ -33,6 +33,13 @@ class Students(db.Model):
     gpa = db.Column(db.Integer)
     address = db.Column(db.String())
     phone = db.Column(db.String())
+    mom = db.Column(db.String(64))
+    momcell = db.Column(db.String())
+    momemail = db.Column(db.String())
+    dad = db.Column(db.String(64))
+    dadcell = db.Column(db.String())
+    dademail = db.Column(db.String())
+
 
 
     def __repr__(self):
@@ -82,7 +89,21 @@ def setup():
 
 @app.route("/list")
 def list_students():
-    results = db.session.query(Students.name, Students.grade, Students.school, Students.gender, Students.birthday, Students.gpa, Students.address, Students.phone).all()
+    results = db.session.query(
+        Students.name, 
+        Students.grade, 
+        Students.school, 
+        Students.gender, 
+        Students.birthday, 
+        Students.gpa, 
+        Students.address, 
+        Students.phone,
+        Students.mom,
+        Students.momcell,
+        Students.momemail,
+        Students.dad,
+        Students.dadcell,
+        Students.dademail).all()
 
     # students = []
     # for result in results:
@@ -107,6 +128,12 @@ def home():
         gpa = request.form["gpa"]
         address = request.form["address"]
         phone = request.form["phone"]
+        mom = request.form["mom"]
+        momcell = request.form["momcell"]
+        momemail = request.form["momemail"]
+        dad = request.form["dad"]
+        dadcell = request.form["dadcell"]
+        dademail = request.form["dademail"]
 
 
         student = Students(
@@ -117,7 +144,13 @@ def home():
             birthday = birthday,
             gpa=gpa,
             address=address,
-            phone=phone)
+            phone=phone,
+            mom = mom,
+            momcell = momcell,
+            momemail = momemail,
+            dad = dad,
+            dadcell = dadcell,
+            dademail = dademail)
         db.session.add(student)
         db.session.commit()
 
