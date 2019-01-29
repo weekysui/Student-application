@@ -39,6 +39,11 @@ class Students(db.Model):
     dad = db.Column(db.String(64))
     dadcell = db.Column(db.String())
     dademail = db.Column(db.String())
+    aciE = db.Column(db.String())
+    aciM = db.Column(db.String())
+    
+
+    # ,nullable=False
 
 
 
@@ -103,7 +108,12 @@ def list_students():
         Students.momemail,
         Students.dad,
         Students.dadcell,
-        Students.dademail).all()
+        Students.dademail,
+        Students.aciE,
+        Students.aciM
+       ).all()
+    #     Students.aciEnglish,
+        # Students.aciMath
 
     # students = []
     # for result in results:
@@ -134,6 +144,9 @@ def home():
         dad = request.form["dad"]
         dadcell = request.form["dadcell"]
         dademail = request.form["dademail"]
+        aciE = request.form["aciE"]
+        aciM = request.form["aciM"]
+        
 
 
         student = Students(
@@ -150,7 +163,10 @@ def home():
             momemail = momemail,
             dad = dad,
             dadcell = dadcell,
-            dademail = dademail)
+            dademail = dademail,
+            aciE = aciE,
+            aciM = aciM)
+           
         db.session.add(student)
         db.session.commit()
 
