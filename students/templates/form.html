@@ -13,7 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <style>
-      
+     
     </style>
 </head>
 <body>
@@ -38,7 +38,7 @@
             <div class="form-row">
                 <div class="form-group col-lg-4 col-md-4 col-sm-6">
                     <label for="inputName">Student's Name:</label>
-                    <input type="text" class="form-control" id="inputName" name="name" placeholder="First Name and Last Name">
+                    <input type="text" class="form-control" id="inputName" name="name" placeholder="First Name and Last Name" required>
                 </div>
                 <div class="form-group col-lg-4 col-md-4 col-sm-6">
                     <label for="inputGender">Gender:</label>
@@ -87,7 +87,7 @@
                 </div>
                 <div class="form-group col-lg-4 col-md-4 col-sm-6">
                     <label for="inputMomemail">Mother's Eamill:</label>
-                    <input type="text" class="form-control" id="iinputMomemail" name="momemail" placeholder="e.g., lisa@gmail.com">
+                    <input type="email" class="form-control" id="iinputMomemail" name="momemail" placeholder="example@gmail.com" validate="required:true" pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*">
                 </div>
             </div>
             <div class="form-row">
@@ -101,7 +101,7 @@
                 </div>
                 <div class="form-group col-lg-4 col-md-4 col-sm-6">
                     <label for="inputMomemail">Father's Eamill:</label>
-                    <input type="text" class="form-control" id="iinputDademail" name="dademail" placeholder="e.g., lisa@gmail.com">
+                    <input type="email" class="form-control" id="iinputDademail" name="dademail" placeholder="example@gmail.com">
                 </div>
             </div>
             <br>

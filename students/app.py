@@ -25,7 +25,7 @@ class Students(db.Model):
     __tablename__ = 'students'
 
     num = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64))
+    name = db.Column(db.String(64), nullable=False)
     grade = db.Column(db.Integer)
     school = db.Column(db.String(64))
     gender = db.Column(db.String(64))
@@ -54,7 +54,7 @@ class Students(db.Model):
 @app.before_first_request
 def setup():
     # Recreate database each time for demo
-    db.drop_all()
+    # db.drop_all()
     db.create_all()
 
 
